@@ -1,0 +1,6 @@
+TrainDate,TrainName,PremiumSeatsAvailable,GenSeatsAvailable,PremiumSeatsOccupied,GenSeatsOccupied,PremiumSeatsWaitlist,GenSeatsWaitlist
+2022-02-19, Orient Express,10,10,0,0,0,0
+2022-02-20, Flying Scotsman,8,6,2,4,0,0
+2022-02-21, Guwahati Express,7,6,3,4,0,0
+2022-02-21, Golden Chariot,2,6,8,4,0,0
+2022-02-21, Golden Arrow ,7,6,3,4,0,0
