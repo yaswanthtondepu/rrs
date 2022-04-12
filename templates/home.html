@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Home</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/styles.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="nav">
+      <div class="header">
+        <div>Railway Reservation System</div>
+        <div style="justify-content: flex-end">
+          <a
+            style="text-decoration: none; color: white"
+            href="{{ url_for('home') }}"
+            >Home</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="content" style="margin-top: 30px">
+      <a href="/findresbyname">Find Reservations by name</a>
+      <a href="/findpassbydate">Find Reservations by date</a>
+      <a href="/train-passenger">Train name with count of passengers</a>
+    </div>
+    <div class="content">
+      <a href="/agerange"
+        >Find Passenger and Train details based on age range</a
+      >
+      <a href="/findresbytrainname"
+        >Find Confirmed Reservations by train name</a
+      >
+      <a href="/newreservation">Create a new Reservation</a>
+    </div>
+    <div class="content">
+      <a href="/cancelreservation">Cancel a Reservation</a>
+    </div>
+  </body>
+</html>

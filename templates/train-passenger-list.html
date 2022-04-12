@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Home</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/styles.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="nav">
+      <div class="header">
+        <div>Railway Reservation System</div>
+        <div style="justify-content: flex-end">
+          <a
+            style="text-decoration: none; color: white"
+            href="{{ url_for('home') }}"
+            >Home</a
+          >
+        </div>
+      </div>
+    </div>
+    <center>
+      <div style="padding-top: 50px">
+        <table>
+          <tr>
+            <th>Train Name</th>
+            <th>Count</th>
+          </tr>
+          {% for col in rows %}
+          <tr>
+            <td>{{col[0]}}</td>
+            <td>{{col[1]}}</td>
+          </tr>
+          {% endfor %} {% if not rows %}
+          <p>No records found</p>
+          {% endif %}
+        </table>
+      </div>
+    </center>
+  </body>
+</html>

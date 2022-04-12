@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>Home</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/styles.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="nav">
+      <div class="header">
+        <div>Railway Reservation System</div>
+        <div style="justify-content: flex-end">
+          <a
+            style="text-decoration: none; color: white"
+            href="{{ url_for('home') }}"
+            >Home</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <center>
+      <div style="padding-top: 50px">
+        <form action="cancelreservationform" method="post">
+          <div style="display: flex; justify-content: space-evenly">
+            <div>
+              <div>
+                <input
+                  type="number"
+                  min="1"
+                  max="{{rows|length}}"
+                  placeholder="User ID"
+                  name="userId"
+                  required
+                />
+              </div>
+              <div>
+                <select name="train">
+                  <option value="" disabled>Select Train</option>
+                  {% for row in rows1 %}
+                  <option value="{{row[0]}}">{{row[1]}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <div>
+                <select name="type">
+                  <option value="" disabled>Ticket Type</option>
+                  <option value="Premium">Premium</option>
+                  <option value="General">General</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <input type="submit" value="Cancel Reservation" />
+        </form>
+      </div>
+      <div>
+        {% if infoText %}
+        <p>{{infoText}}</p>
+        {% endif %}
+      </div>
+    </center>
+  </body>
+</html>

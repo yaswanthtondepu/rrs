@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Home</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/styles.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="nav">
+      <div class="header">
+        <div>Railway Reservation System</div>
+        <div style="justify-content: flex-end">
+          <a
+            style="text-decoration: none; color: white"
+            href="{{ url_for('home') }}"
+            >Home</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <center>
+      <div style="padding-top: 50px">
+        <form action="findpassbydateform" method="post">
+          <div>
+            <input type="date" name="date" placeholder="Enter date" required />
+          </div>
+          <div style="margin-top: 20px">
+            <input type="submit" value="Find Reservations" />
+          </div>
+        </form>
+      </div>
+    </center>
+  </body>
+</html>

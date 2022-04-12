@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 from flask import Flask, render_template, request
 import sqlite3
 
@@ -80,7 +79,7 @@ def findpassbydateform():
     date = request.form['date']
     # query = "SELECT p.* from train_status ts  join train t on ts.train_name = t.train_name join booked b on b.train_number = t.train_number join passenger p on b.passenger_ssn = p.ssn where ts.train_date = '"+date+"'"
     query = "SELECT p.* from train_status ts,train t,booked b,passenger p where ts.train_date= '"+date + \
-        "' and  trim(ts.train_name) = trim(t.train_name) and t.train_number = b.train_number and b.passenger_ssn = p.ssn;"
+        "' and  trim(ts.train_name) = trim(t.train_name) and t.train_number = b.train_number and b.passenger_ssn = p.ssn and b.status='Confirmed';"
     cur.execute(query)
     rows = cur.fetchall()
     conn.close()
@@ -135,7 +134,6 @@ def newreservationform():
     query = "select * from train where train_number = "+train+";"
     cur.execute(query)
     rows = cur.fetchall()
-    infoText = NULL
     train_name = rows[0][1].strip()
     q1 = "select * from train_status where trim(train_name) = '"+train_name+"'"
     cur.execute(q1)
@@ -233,7 +231,6 @@ def cancelreservationform():
     cur.execute(q2)
     rows2 = cur.fetchall()
     passenger_ssn = rows2[0][0]
-    infoText = NULL
     query2 = "Select userId from passenger;"
     cur.execute(query2)
     users = cur.fetchall()
@@ -244,7 +241,6 @@ def cancelreservationform():
         train+" and ticket_type = '"+type+"' and doj = '"+train_date+"' limit 1;"
     cur.execute(qe1)
     rows4 = cur.fetchall()
-    ticket_status = NULL
     if(len(rows4) == 0):
         infoText = "No such reservation exists for userId " + \
             userId+" in Train "+train_name+" on "+train_date+"."

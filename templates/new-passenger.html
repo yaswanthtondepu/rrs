@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>Home</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/styles.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="nav">
+      <div class="header">
+        <div>Railway Reservation System</div>
+        <div style="justify-content: flex-end">
+          <a
+            style="text-decoration: none; color: white"
+            href="{{ url_for('home') }}"
+            >Home</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <center>
+      <div style="padding-top: 50px">
+        <form action="findpassbydateform" method="post">
+          <div style="display: flex; justify-content: space-evenly">
+            <div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="First name"
+                  name="firstname"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Last name"
+                  name="lastname"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="number"
+                  placeholder="ssn"
+                  name="ssn"
+                  min="100000000"
+                  max="999999999"
+                  required
+                />
+              </div>
+              <div>
+                <input type="date" placeholder="dob" name="dob" required />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="address"
+                  name="address"
+                  required
+                />
+              </div>
+              <div>
+                <input type="text" placeholder="city" name="city" required />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="county"
+                  name="county"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <input type="submit" value="Create Reservation" />
+        </form>
+      </div>
+    </center>
+  </body>
+</html>
